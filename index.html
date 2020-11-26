@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>Adobe</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<div class="cart-container">
+    <div class="cart-heading">
+        <h2>All Items</h2>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8">
+            <div class="card-section">
+                
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="order-container">
+                <div class="responsive-table">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>ITEM</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                      </tr>
+                    </thead>
+                    <tbody class="cart-items">
+                      
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="1"></td>
+                          <td>Toatal</td>
+                          <td class="cart-total-price">$0</td>
+                        </tr>
+                      </tfoot>
+                  </table>
+                </div>
+                
+            </div>
+<!--
+          <section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
+-->
+        </div>
+      </div>
+    </div>
+</div>
+<ul></ul>
+     
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/
+jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/main.js"></script>
+ <script>
+	$(document).ready( function() {
+        $.getJSON("cart.json", function(data){
+           $.each(data.items, function(i, item){
+             $(".card-section").append("<div class='card'><div class='image-section'><img src="+this['image']+" alt='name' class='shop-item-image'></div><div class='content-section'><h4 class='shop-item-title'>"+this['name']+"</h4><div class='bottom-section'><div class='left-section'><p class='hide-text'>"+this.price['display']+"</p><p class='shop-item-price'>"+this.price['actual']+"</p></div><div class='right-section'><button type='button' class='btn btn-outline-primary shop-item-button' >Add to Cart</button></div></div></div><div class='offer-details'><p>"+this['discount']+"% off</p></div></div>");
+       });
+            ready();
+     });
+        
+      }); 
+     
+ </script>
+    
+</body>
+</html>

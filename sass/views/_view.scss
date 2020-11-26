@@ -1,0 +1,252 @@
+.cart-heading{
+    padding: 15px; 
+    h2{
+    color: black;
+    font-size: 24px;
+    margin: 0px;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+} 
+} 
+
+.hide{
+    display: none;
+}
+
+@mixin grid($cols, $mgn) {
+  float: left;
+  width: ((100% - (($cols - 1) * $mgn)) / $cols);
+  margin-right: $mgn;
+  margin-bottom: $mgn;
+
+  &:nth-child(#{$cols}n) {
+    margin-right: 0 !important;
+  }
+}
+
+.card{
+    
+    position: relative;
+    @media only screen and (max-width: 659.49px) {
+          @include grid(1, 0%);
+        margin-bottom: 15px;
+        }
+    @media only screen and (max-width: 991.49px) and (min-width: 660px) {
+          @include grid(3, 2%);
+        }
+        @media only screen and (max-width: 1199.49px) and (min-width: 992px) {
+          @include grid(2, 2%);
+        }
+        @media only screen and (max-width: 1919.49px) and (min-width: 1200px) {
+          @include grid(3, 2%);
+        }
+        @media only screen and (min-width: 1920px) {
+          @include grid(4, 4%);
+          max-width: unset !important;
+        }
+    .image-section{
+        padding: 15px 25px;
+        img{
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            width: 100%;
+        }
+    }
+    .content-section{
+        background: #efefef;
+        padding: 5px 5px 10px;
+        h4{
+            font-size: 14px;
+            margin: 0px;
+        }
+        .bottom-section{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .left-section{
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                p{
+                    font-size: 18px;
+                    margin-right: 10px;
+                    margin-bottom: 0px;
+                    font-weight: bold;
+                    position: relative;
+                    &.hide-text{
+                        font-weight: normal;
+                        &:after{
+                            content: '';
+                            height: 1px;
+                            width: 100%;
+                            background: #000;
+                            position: absolute;
+                            left: 0px;
+                            top: 14px;
+                        }
+                    }
+                }
+            }
+            .right-section{
+                button{
+                    font-size: 14px;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 2px solid;
+                }
+            }
+        }
+    }
+    .offer-details{
+        position: absolute;
+        left: 0px;
+        top: 15px;
+        background: #6cd153;
+        padding: 5px 10px;
+        p{
+            margin: 0px;
+            color: #fff;
+            font-size: 14px;
+        }
+    }
+}
+
+
+
+
+
+//.btn-danger {
+//    color: white;
+//    background-color: #EB5757;
+//    border: none;
+//    border-radius: .3em;
+//    font-weight: bold;
+//}
+//
+//.btn-danger:hover {
+//    background-color: #CC4C4C;
+//}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+
+
+.responsive-table{
+    max-width: 100%;
+    overflow: auto;
+    .cart-table-image-section{
+        .cart-item-image {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .cart-item-title {
+            color: #333;
+            margin-left: 10px;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 70px;
+        }
+        @media screen and (min-width: 768px) {
+            display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+    }
+    .price-details{
+        @media screen and (min-width: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            font-weight: bold;
+        }
+    }
+    .cart-total-price {
+        color: #333;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    @media screen and (max-width: 767px) {
+          table {
+            border: 0;
+          }
+
+          table thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+          }
+
+          table tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: .625em;
+          }
+
+          table td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: .8em;
+            text-align: left;
+            font-size: 14px;
+          }
+
+          table td::before {
+            /*
+            * aria-label has no advantage, it won't be read inside a table
+            content: attr(aria-label);
+            */
+            content: attr(data-label);
+            width: 210px;
+            word-break: break-word;
+            text-align: left;
+            display: inline-block;
+            font-weight: bold;
+            text-transform: capitalize;
+          }
+
+          table td:last-child {
+            border-bottom: 0;
+          }
+ 
+}
+}
+
+
